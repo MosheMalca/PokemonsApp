@@ -1,0 +1,38 @@
+#form h1 {
+  text-align: center;
+}
+
+#form img {
+  max-width: 200px;
+  align-self: start;
+}
+
+#form .form-container {
+  display: flex;
+  justify-content: center;
+}
+
+#form .form-container .input-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#form .form-container .base {
+  padding-left: 15px;
+  font-size: 13px;
+}
+
+#form .form-container button {
+  padding: 4px 12px;
+  color: white;
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  margin: 0 5px;
+}
+#form .form-container .backBtn {
+  background-color: gray;
+}
+#form .form-container .saveBtn {
+  background-color: lightblue;
+}

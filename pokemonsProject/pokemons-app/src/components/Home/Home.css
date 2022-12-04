@@ -1,0 +1,44 @@
+#home main {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+#home .header.pokemon-row {
+  color: white;
+  background-color: grey;
+  border: 1px solid white;
+}
+
+#home .header.pokemon-row .img-cell {
+  height: unset;
+}
+
+#home .pokemon-row {
+  display: flex;
+  align-items: center;
+}
+#home .pokemon-row .pokemon-name {
+  flex: 1;
+}
+#home .pokemon-row:nth-child(odd) {
+  background-color: gray;
+}
+#home .pokemon-row:nth-child(even) {
+  background-color: lightgray;
+}
+
+#home .pokemon-row .img-cell {
+  height: 100px;
+  width: 100px;
+  border-right: 1px solid white;
+}
+
+#home .refresh-btn {
+  background-color: #54a8c3;
+  color: white;
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  border: azure;
+}
