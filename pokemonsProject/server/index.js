@@ -3,10 +3,12 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const pokedex = require("./pokedex.json");
+let pokedexTmp = pokedex;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+flag = true;
 
 const getRandomInt = (min, max) => {
   const diff = max - min;
@@ -14,15 +16,25 @@ const getRandomInt = (min, max) => {
 };
 
 app.get("/api/pokemons/random", (_req, res) => {
+  if (pokedexTmp.length < 5) pokedexTmp = pokedex;
+
   const randomPokemon = [];
   for (let index = 0; index < 5; index++) {
-    const pokemonIndex = getRandomInt(0, pokedex.length - 1);
-    const pokemon = pokedex[pokemonIndex];
+    const pokemonIndex = getRandomInt(0, pokedexTmp.length - 1);
+    const pokemon = pokedexTmp[pokemonIndex];
     randomPokemon.push(pokemon);
+
+    pokedexTmp = pokedexTmp
+      .slice(0, pokemonIndex)
+      .concat(pokedexTmp.slice(pokemonIndex + 1));
   }
 
   res.json(randomPokemon);
 });
+
+// const removeAt = (arr, n) => {
+//   return arr.slice(0, n).concat(arr.slice(n + 1));
+// };
 
 app.get("/api/pokemons/:id", (req, res) => {
   const pokemonId = req.params.id;
